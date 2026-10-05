@@ -39,7 +39,7 @@ let package = Package(
 			name: "PriceFeed",
 			dependencies: [
 				"Domain",
-				"Networking"
+				"Networking",
 			]
 		),
 
@@ -54,14 +54,14 @@ let package = Package(
 			name: "FeatureSymbolsList",
 			dependencies: [
 				"Domain",
-				"DesignSystem"
+				"DesignSystem",
 			]
 		),
 		.target(
 			name: "FeatureSymbolDetails",
 			dependencies: [
 				"Domain",
-				"DesignSystem"
+				"DesignSystem",
 			]
 		),
 	]
