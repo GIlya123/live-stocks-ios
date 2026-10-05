@@ -6,6 +6,12 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9D370B203074400000FFB811 /* PriceFeed in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B103074400000FFB811 /* PriceFeed */; };
+		9D370B213074400000FFB811 /* FeatureSymbolsList in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B113074400000FFB811 /* FeatureSymbolsList */; };
+		9D370B223074400000FFB811 /* FeatureSymbolDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B123074400000FFB811 /* FeatureSymbolDetails */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9D370ABC3074320600FFB811 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,7 @@
 		9D370AAE3074320400FFB811 /* LiveStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D370ABB3074320600FFB811 /* LiveStocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveStocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D370AC53074320600FFB811 /* LiveStocksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveStocksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D370B023074400000FFB811 /* LiveStocksKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LiveStocksKit; path = Packages/LiveStocksKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,6 +58,9 @@
 		9D370AAB3074320400FFB811 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				9D370B203074400000FFB811 /* PriceFeed in Frameworks */,
+				9D370B213074400000FFB811 /* FeatureSymbolsList in Frameworks */,
+				9D370B223074400000FFB811 /* FeatureSymbolDetails in Frameworks */,
 			);
 		};
 		9D370AB83074320600FFB811 /* Frameworks */ = {
@@ -69,6 +79,7 @@
 		9D370AA53074320400FFB811 = {
 			isa = PBXGroup;
 			children = (
+				9D370B023074400000FFB811 /* LiveStocksKit */,
 				9D370AB03074320400FFB811 /* LiveStocks */,
 				9D370ABE3074320600FFB811 /* LiveStocksTests */,
 				9D370AC83074320600FFB811 /* LiveStocksUITests */,
@@ -103,6 +114,11 @@
 				9D370AB03074320400FFB811 /* LiveStocks */,
 			);
 			name = LiveStocks;
+			packageProductDependencies = (
+				9D370B103074400000FFB811 /* PriceFeed */,
+				9D370B113074400000FFB811 /* FeatureSymbolsList */,
+				9D370B123074400000FFB811 /* FeatureSymbolDetails */,
+			);
 			productName = LiveStocks;
 			productReference = 9D370AAE3074320400FFB811 /* LiveStocks.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +197,9 @@
 			);
 			mainGroup = 9D370AA53074320400FFB811;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9D370B013074400000FFB811 /* XCLocalSwiftPackageReference "Packages/LiveStocksKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9D370AAF3074320400FFB811 /* Products */;
 			projectDirPath = "";
@@ -540,6 +559,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		9D370B013074400000FFB811 /* XCLocalSwiftPackageReference "Packages/LiveStocksKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/LiveStocksKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D370B103074400000FFB811 /* PriceFeed */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PriceFeed;
+		};
+		9D370B113074400000FFB811 /* FeatureSymbolsList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeatureSymbolsList;
+		};
+		9D370B123074400000FFB811 /* FeatureSymbolDetails */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeatureSymbolDetails;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D370AA63074320400FFB811 /* Project object */;
 	validationLevel = 1;
