@@ -93,6 +93,15 @@ let package = Package(
 				"DesignSystem",
 			]
 		),
+		.testTarget(
+			name: "FeatureSymbolsListTests",
+			dependencies: [
+				"FeatureSymbolsList",
+				"Domain",
+				"DesignSystem",
+				"DomainTesting",
+			]
+		),
 		.target(
 			name: "FeatureSymbolDetails",
 			dependencies: [
