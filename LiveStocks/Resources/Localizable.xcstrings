@@ -1,0 +1,36 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Language" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللغة"
+          }
+        }
+      }
+    },
+    "Language follows the iOS settings of the app" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تتبع اللغة إعدادات التطبيق في iOS"
+          }
+        }
+      }
+    },
+    "Region" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المنطقة"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

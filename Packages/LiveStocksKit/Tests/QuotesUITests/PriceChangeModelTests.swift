@@ -63,4 +63,30 @@ struct PriceChangeModelTests {
 		#expect(model.change == "0.00%")
 		#expect(model.trend == .flat)
 	}
+
+	@Test func formatsPriceInSymbolCurrency() {
+		// Given
+		let quote = StockQuote.fixture("EMAAR", open: 9.1, currency: .aed)
+
+		// When
+		let model = PriceChangeView.Model(quote, locale: locale)
+
+		// Then
+		// The formatter puts a non-breaking space between the code and the amount
+		#expect(model.price.contains("AED"))
+		#expect(model.price.contains("9.10"))
+	}
+
+	@Test func keepsLatinDigitsInArabic() {
+		// Given
+		let quote = StockQuote.fixture("EMAAR", open: 9.1, currency: .aed)
+		let arabicIndicDigits = Set("٠١٢٣٤٥٦٧٨٩")
+
+		// When
+		let model = PriceChangeView.Model(quote, locale: Locale(identifier: "ar_AE"))
+
+		// Then
+		#expect(model.price.contains("9"))
+		#expect(!model.price.contains { arabicIndicDigits.contains($0) })
+	}
 }

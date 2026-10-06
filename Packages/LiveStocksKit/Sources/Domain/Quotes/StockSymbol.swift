@@ -10,6 +10,7 @@ public struct StockSymbol: Hashable, Identifiable, Sendable {
 	public let name: String
 	/// Short stock description
 	public let summary: String
+	public let currency: Currency
 
 	public var id: String {
 		ticker
@@ -18,10 +19,12 @@ public struct StockSymbol: Hashable, Identifiable, Sendable {
 	public init(
 		ticker: String,
 		name: String,
-		summary: String
+		summary: String,
+		currency: Currency
 	) {
 		self.ticker = ticker
 		self.name = name
 		self.summary = summary
+		self.currency = currency
 	}
 }

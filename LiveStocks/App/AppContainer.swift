@@ -13,16 +13,27 @@ import PriceFeed
 
 /// Builds the app's long-lived objects, the only place that knows concrete types
 final class AppContainer {
+	let region: Region
 	let store: QuoteStore
 
-	init(configuration: AppConfiguration = .current) {
-		let quotes = SymbolCatalog.quotes
+	init(
+		configuration: AppConfiguration,
+		feed: any PriceStreaming
+	) {
+		region = configuration.region
+		store = QuoteStore(
+			quotes: configuration.quotes,
+			feed: feed
+		)
+	}
+
+	static func live(configuration: AppConfiguration) -> AppContainer {
 		let feed = LivePriceFeed(
 			url: configuration.priceFeedURL,
-			startPrices: Dictionary(uniqueKeysWithValues: quotes.map { ($0.symbol.ticker, $0.openPrice) })
+			startPrices: Dictionary(uniqueKeysWithValues: configuration.quotes.map { ($0.symbol.ticker, $0.openPrice) })
 		)
-		store = QuoteStore(
-			quotes: quotes,
+		return AppContainer(
+			configuration: configuration,
 			feed: feed
 		)
 	}

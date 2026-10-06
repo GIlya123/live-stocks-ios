@@ -36,8 +36,10 @@ public struct SymbolDetailsView: View {
 				}
 				.padding(.vertical, Spacing.space8)
 			}
-			Section("About") {
+			Section {
 				Text(liveQuote.quote.symbol.summary)
+			} header: {
+				Text("About", bundle: .module)
 			}
 		}
 		.navigationTitle(liveQuote.quote.symbol.ticker)
@@ -52,7 +54,8 @@ public struct SymbolDetailsView: View {
 				symbol: StockSymbol(
 					ticker: "AAPL",
 					name: "Apple",
-					summary: "Designs iPhone, Mac and services like the App Store."
+					summary: "Designs iPhone, Mac and services like the App Store.",
+					currency: .usd
 				),
 				openPrice: 189
 			)

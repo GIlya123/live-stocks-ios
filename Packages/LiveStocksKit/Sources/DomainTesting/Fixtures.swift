@@ -9,11 +9,15 @@ import Domain
 import Foundation
 
 extension StockSymbol {
-	public static func fixture(_ ticker: String) -> StockSymbol {
+	public static func fixture(
+		_ ticker: String,
+		currency: Currency = .usd
+	) -> StockSymbol {
 		StockSymbol(
 			ticker: ticker,
 			name: "\(ticker) Inc.",
-			summary: "\(ticker) summary"
+			summary: "\(ticker) summary",
+			currency: currency
 		)
 	}
 }
@@ -22,10 +26,14 @@ extension StockQuote {
 	public static func fixture(
 		_ ticker: String,
 		open: Decimal,
-		price: Decimal? = nil
+		price: Decimal? = nil,
+		currency: Currency = .usd
 	) -> StockQuote {
 		var quote = StockQuote(
-			symbol: .fixture(ticker),
+			symbol: .fixture(
+				ticker,
+				currency: currency
+			),
 			openPrice: open
 		)
 		if let price {
