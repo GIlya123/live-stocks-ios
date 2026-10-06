@@ -49,10 +49,11 @@ public actor MockPriceFeed: PriceStreaming {
 	}
 }
 
-/// Gives the main actor turns until the condition holds, tests bound it with a time limit
+/// Checks the condition every millisecond, tests bound it with a time limit
 @MainActor
 public func waitUntil(_ condition: () -> Bool) async {
+	// Sleeping instead of yielding lets other work run on a busy CI machine
 	while !condition() {
-		await Task.yield()
+		try? await Task.sleep(for: .milliseconds(1))
 	}
 }

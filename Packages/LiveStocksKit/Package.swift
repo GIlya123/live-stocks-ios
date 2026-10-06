@@ -123,6 +123,7 @@ let package = Package(
 			dependencies: [
 				"Domain",
 				"DesignSystem",
+				"QuotesUI",
 			]
 		),
 	]

@@ -24,6 +24,9 @@ struct LiveStocksApp: App {
 		WindowGroup {
 			NavigationStack {
 				SymbolsListView(viewModel: listViewModel)
+					.navigationDestination(for: StockSymbol.self) { symbol in
+						container.makeSymbolDetailsView(for: symbol)
+					}
 			}
 			.task {
 				await container.store.listen()

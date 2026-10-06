@@ -19,7 +19,9 @@ public struct SymbolsListView: View {
 
 	public var body: some View {
 		List(viewModel.rows) { liveQuote in
-			SymbolRow(liveQuote: liveQuote)
+			NavigationLink(value: liveQuote.quote.symbol) {
+				SymbolRow(liveQuote: liveQuote)
+			}
 		}
 		.listStyle(.plain)
 		.safeAreaInset(edge: .top) {
@@ -74,14 +76,16 @@ public struct SymbolsListView: View {
 			StockQuote(
 				symbol: StockSymbol(
 					ticker: "AAPL",
-					name: "Apple"
+					name: "Apple",
+					summary: "Consumer electronics"
 				),
 				openPrice: 189
 			),
 			StockQuote(
 				symbol: StockSymbol(
 					ticker: "NVDA",
-					name: "NVIDIA"
+					name: "NVIDIA",
+					summary: "Graphics and AI chips"
 				),
 				openPrice: 121
 			),
