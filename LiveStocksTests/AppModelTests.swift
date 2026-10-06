@@ -44,14 +44,8 @@ struct AppModelTests {
 	@Test func keepsFeedRunningAfterSwitchWhenItWasRunning() async {
 		// Given
 		let model = makeModel()
-		let listening = Task {
-			await model.container.store.listen()
-		}
+		let listening = await startFeed(of: model)
 		defer { listening.cancel() }
-		await model.container.store.start()
-		while model.container.store.connectionState != .connected {
-			try? await Task.sleep(for: .milliseconds(1))
-		}
 
 		// When
 		await model.switchRegion(to: .unitedArabEmirates)
@@ -74,6 +68,46 @@ struct AppModelTests {
 		// Then
 		#expect(model.region == .unitedArabEmirates)
 		#expect(storage.savedRegion == .unitedArabEmirates)
+	}
+
+	@Test func backgroundStopsRunningFeedAndActiveStartsItAgain() async {
+		// Given
+		let model = makeModel()
+		let listening = await startFeed(of: model)
+		defer { listening.cancel() }
+
+		// When
+		await model.didEnterBackground()
+		await model.didBecomeActive()
+
+		// Then
+		#expect(await feeds[.unitedStates].stopCount == 1)
+		#expect(await feeds[.unitedStates].startCount == 2)
+	}
+
+	@Test func activeDoesNotStartFeedThatWasStopped() async {
+		// Given
+		let model = makeModel()
+
+		// When
+		await model.didEnterBackground()
+		await model.didBecomeActive()
+
+		// Then
+		#expect(await feeds[.unitedStates].stopCount == 0)
+		#expect(await feeds[.unitedStates].startCount == 0)
+	}
+
+	/// Returns the listening task, the caller cancels it when the test ends
+	private func startFeed(of model: AppModel) async -> Task<Void, Never> {
+		let listening = Task {
+			await model.container.store.listen()
+		}
+		await model.container.store.start()
+		while model.container.store.connectionState != .connected {
+			try? await Task.sleep(for: .milliseconds(1))
+		}
+		return listening
 	}
 
 	private func makeModel() -> AppModel {
