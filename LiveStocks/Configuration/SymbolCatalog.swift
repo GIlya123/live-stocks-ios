@@ -13,8 +13,7 @@ enum SymbolCatalog {
 	struct Entry {
 		let ticker: String
 		let name: String
-		/// Cents or fils keep the price exact, a Decimal from a float literal goes through Double
-		let openPriceInMinorUnits: Int
+		let openPrice: String
 		let summary: String
 	}
 
@@ -38,14 +37,18 @@ enum SymbolCatalog {
 		currency: Currency
 	) -> [StockQuote] {
 		entries.map { entry in
-			StockQuote(
+			guard let openPrice = Decimal(string: entry.openPrice) else {
+				preconditionFailure("Invalid open price in catalog: \(entry.openPrice)")
+			}
+
+			return StockQuote(
 				symbol: StockSymbol(
 					ticker: entry.ticker,
 					name: entry.name,
 					summary: entry.summary,
 					currency: currency
 				),
-				openPrice: Decimal(entry.openPriceInMinorUnits) / 100
+				openPrice: openPrice
 			)
 		}
 	}
