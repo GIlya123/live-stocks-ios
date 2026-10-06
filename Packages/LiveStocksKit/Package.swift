@@ -71,10 +71,7 @@ let package = Package(
 
 		// UI
 		.target(
-			name: "DesignSystem",
-			dependencies: [
-				"Domain"
-			]
+			name: "DesignSystem"
 		),
 		.target(
 			name: "FeatureSymbolsList",
