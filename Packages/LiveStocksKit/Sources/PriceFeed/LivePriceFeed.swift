@@ -38,7 +38,7 @@ public actor LivePriceFeed: PriceStreaming {
 
 	public init(
 		url: URL,
-		startPrices: [String: Decimal],
+		openPrices: [String: Decimal],
 		transport: any WebSocketTransport = URLSessionWebSocketTransport(),
 		interval: Duration = .seconds(2),
 		backoff: BackoffPolicy = BackoffPolicy()
@@ -47,7 +47,7 @@ public actor LivePriceFeed: PriceStreaming {
 		self.transport = transport
 		self.interval = interval
 		self.backoff = backoff
-		self.generator = PriceGenerator(startPrices: startPrices)
+		self.generator = PriceGenerator(openPrices: openPrices)
 	}
 
 	public func updates() -> AsyncStream<PriceFeedUpdate> {
