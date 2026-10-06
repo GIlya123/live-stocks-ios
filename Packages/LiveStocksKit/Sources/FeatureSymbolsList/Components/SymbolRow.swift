@@ -7,6 +7,7 @@
 
 import DesignSystem
 import Domain
+import QuotesUI
 import SwiftUI
 
 struct SymbolRow: View {

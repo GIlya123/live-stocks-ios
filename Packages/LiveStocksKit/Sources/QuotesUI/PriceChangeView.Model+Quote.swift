@@ -1,6 +1,6 @@
 //
 //  PriceChangeView.Model+Quote.swift
-//  FeatureSymbolsList
+//  QuotesUI
 //
 //  Created by GIlya123 on 06.10.2026.
 //
@@ -15,7 +15,7 @@ private enum Constants {
 }
 
 extension PriceChangeView.Model {
-	init(
+	public init(
 		_ quote: StockQuote,
 		locale: Locale
 	) {

@@ -1,16 +1,16 @@
 //
 //  PriceChangeModelTests.swift
-//  FeatureSymbolsListTests
+//  QuotesUITests
 //
 //  Created by GIlya123 on 06.10.2026.
 //
 
 import DesignSystem
 import Domain
+import DomainTesting
 import Foundation
+import QuotesUI
 import Testing
-
-@testable import FeatureSymbolsList
 
 struct PriceChangeModelTests {
 	private let locale = Locale(identifier: "en_US")
