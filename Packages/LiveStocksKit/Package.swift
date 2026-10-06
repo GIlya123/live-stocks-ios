@@ -60,6 +60,14 @@ let package = Package(
 				"Networking",
 			]
 		),
+		.testTarget(
+			name: "PriceFeedTests",
+			dependencies: [
+				"PriceFeed",
+				"Domain",
+				"Networking",
+			]
+		),
 
 		// UI
 		.target(

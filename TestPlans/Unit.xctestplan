@@ -33,6 +33,13 @@
         "identifier" : "NetworkingTests",
         "name" : "NetworkingTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/LiveStocksKit",
+        "identifier" : "PriceFeedTests",
+        "name" : "PriceFeedTests"
+      }
     }
   ],
   "version" : 1
