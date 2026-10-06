@@ -1,0 +1,20 @@
+{
+  "configurations" : [
+    {
+      "id" : "EF8D1D7A-ADCC-4EB9-9FFF-092C9A413A8A",
+      "name" : "Configuration 1",
+      "options" : {}
+    }
+  ],
+  "defaultOptions" : {},
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:LiveStocks.xcodeproj",
+        "identifier" : "9D370AC43074320600FFB811",
+        "name" : "LiveStocksUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
