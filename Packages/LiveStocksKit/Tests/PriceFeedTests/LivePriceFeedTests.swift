@@ -100,7 +100,7 @@ struct LivePriceFeedTests {
 	private func makeFeed(transport: FakeTransport) throws -> LivePriceFeed {
 		LivePriceFeed(
 			url: try #require(URL(string: "wss://echo.test")),
-			startPrices: [
+			openPrices: [
 				"AAPL": 100,
 				"MSFT": 200,
 			],

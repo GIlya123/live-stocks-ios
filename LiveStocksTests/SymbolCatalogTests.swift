@@ -6,6 +6,7 @@
 //
 
 import Domain
+import Foundation
 import Testing
 
 @testable import LiveStocks
@@ -28,5 +29,13 @@ struct SymbolCatalogTests {
 	])
 	func pricesSymbolsInRegionCurrency(region: Region, currency: Currency) {
 		#expect(SymbolCatalog.quotes(for: region).allSatisfy { $0.symbol.currency == currency })
+	}
+
+	@Test func everyOpenPriceIsANumber() {
+		// When
+		let prices = (SymbolCatalog.unitedStates + SymbolCatalog.unitedArabEmirates).map(\.openPrice)
+
+		// Then
+		#expect(prices.allSatisfy { Decimal(string: $0) != nil })
 	}
 }

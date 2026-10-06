@@ -30,7 +30,7 @@ final class AppContainer {
 	static func live(configuration: AppConfiguration) -> AppContainer {
 		let feed = LivePriceFeed(
 			url: configuration.priceFeedURL,
-			startPrices: Dictionary(uniqueKeysWithValues: configuration.quotes.map { ($0.symbol.ticker, $0.openPrice) })
+			openPrices: Dictionary(uniqueKeysWithValues: configuration.quotes.map { ($0.symbol.ticker, $0.openPrice) })
 		)
 		return AppContainer(
 			configuration: configuration,

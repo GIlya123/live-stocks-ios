@@ -17,8 +17,8 @@ struct PriceGenerator {
 
 	private var prices: [String: Decimal]
 
-	init(startPrices: [String: Decimal]) {
-		prices = startPrices
+	init(openPrices: [String: Decimal]) {
+		prices = openPrices
 	}
 
 	var tickers: [String] {
