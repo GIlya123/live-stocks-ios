@@ -108,6 +108,9 @@ let package = Package(
 				"Domain",
 				"DesignSystem",
 				"QuotesUI",
+			],
+			resources: [
+				.process("Resources")
 			]
 		),
 		.testTarget(
@@ -124,6 +127,9 @@ let package = Package(
 				"Domain",
 				"DesignSystem",
 				"QuotesUI",
+			],
+			resources: [
+				.process("Resources")
 			]
 		),
 	]

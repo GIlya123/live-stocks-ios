@@ -36,8 +36,10 @@ public struct SymbolDetailsView: View {
 				}
 				.padding(.vertical, Spacing.space8)
 			}
-			Section("About") {
+			Section {
 				Text(liveQuote.quote.symbol.summary)
+			} header: {
+				Text("About", bundle: .module)
 			}
 		}
 		.navigationTitle(liveQuote.quote.symbol.ticker)

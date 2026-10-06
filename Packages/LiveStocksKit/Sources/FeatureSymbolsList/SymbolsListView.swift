@@ -31,14 +31,16 @@ public struct SymbolsListView: View {
 			.default,
 			value: viewModel.rows.map(\.id)
 		)
-		.navigationTitle("Stocks")
+		.navigationTitle(Text("Stocks", bundle: .module))
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
-				Button(viewModel.isRunning ? "Stop" : "Start") {
+				Button {
 					Task {
 						await viewModel.toggleFeed()
 					}
+				} label: {
+					viewModel.isRunning ? Text("Stop", bundle: .module) : Text("Start", bundle: .module)
 				}
 			}
 		}
@@ -53,14 +55,13 @@ public struct SymbolsListView: View {
 			spacing: Spacing.space8
 		) {
 			ConnectionStatusView(state: viewModel.connectionState)
-			Picker(
-				"Sort",
-				selection: $viewModel.sortOption
-			) {
-				Text("Price")
+			Picker(selection: $viewModel.sortOption) {
+				Text("Price", bundle: .module)
 					.tag(QuoteSortOption.price)
-				Text("Change")
+				Text("Change", bundle: .module)
 					.tag(QuoteSortOption.priceChange)
+			} label: {
+				Text("Sort", bundle: .module)
 			}
 			.pickerStyle(.segmented)
 		}

@@ -14,7 +14,7 @@ struct ConnectionStatusView: View {
 
 	var body: some View {
 		Label {
-			Text(title)
+			Text(title, bundle: .module)
 		} icon: {
 			Circle()
 				.fill(color)
@@ -27,7 +27,7 @@ struct ConnectionStatusView: View {
 		.labelStyle(.titleAndIcon)
 	}
 
-	private var title: String {
+	private var title: LocalizedStringKey {
 		switch state {
 		case .connected:
 			"Connected"
