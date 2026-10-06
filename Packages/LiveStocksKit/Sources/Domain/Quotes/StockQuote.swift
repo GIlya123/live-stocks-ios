@@ -13,6 +13,7 @@ public struct StockQuote: Hashable, Identifiable, Sendable {
 	public let openPrice: Decimal
 	public private(set) var price: Decimal
 	public private(set) var updatedAt: Date?
+	private var lastSequence: Int?
 
 	public var id: String {
 		symbol.id
@@ -48,13 +49,13 @@ public struct StockQuote: Hashable, Identifiable, Sendable {
 			return false
 		}
 
-		// TODO: Compare sequence numbers instead of timestamps once the feed sends them.
-		guard tick.timestamp > updatedAt ?? .distantPast else {
+		guard tick.sequence > lastSequence ?? .min else {
 			return false
 		}
 
 		price = tick.price
 		updatedAt = tick.timestamp
+		lastSequence = tick.sequence
 		return true
 	}
 }

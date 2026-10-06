@@ -27,8 +27,8 @@ struct StockQuoteTests {
 		var quote = StockQuote.fixture("AAPL", open: 200)
 
 		// When
-		quote.apply(.fixture("AAPL", price: 210, at: 1))
-		quote.apply(.fixture("AAPL", price: 205, at: 2))
+		quote.apply(.fixture("AAPL", price: 210, sequence: 1))
+		quote.apply(.fixture("AAPL", price: 205, sequence: 2))
 
 		// Then
 		#expect(quote.change == 5)
@@ -41,21 +41,21 @@ struct StockQuoteTests {
 		var quote = StockQuote.fixture("AAPL", open: 100)
 
 		// When
-		let applied = quote.apply(.fixture("MSFT", price: 300, at: 1))
+		let applied = quote.apply(.fixture("MSFT", price: 300, sequence: 1))
 
 		// Then
 		#expect(!applied)
 		#expect(quote.price == 100)
 	}
 
-	@Test(arguments: [1.0, 0.5])
-	func ignoresTicksThatAreNotNewer(than seconds: TimeInterval) {
+	@Test(arguments: [1, 0])
+	func ignoresTicksThatAreNotNewer(sequence: Int) {
 		// Given
 		var quote = StockQuote.fixture("AAPL", open: 100)
-		quote.apply(.fixture("AAPL", price: 110, at: 1))
+		quote.apply(.fixture("AAPL", price: 110, sequence: 1))
 
 		// When
-		let applied = quote.apply(.fixture("AAPL", price: 90, at: seconds))
+		let applied = quote.apply(.fixture("AAPL", price: 90, sequence: sequence))
 
 		// Then
 		#expect(!applied)
@@ -67,7 +67,7 @@ struct StockQuoteTests {
 		var quote = StockQuote.fixture("AAPL", open: 0)
 
 		// When
-		quote.apply(.fixture("AAPL", price: 10, at: 1))
+		quote.apply(.fixture("AAPL", price: 10, sequence: 1))
 
 		// Then
 		#expect(quote.changePercent == 0)
