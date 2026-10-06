@@ -176,7 +176,8 @@ enum SymbolCatalog {
 			symbol: StockSymbol(
 				ticker: entry.ticker,
 				name: entry.name,
-				summary: entry.summary
+				summary: entry.summary,
+				currency: .usd
 			),
 			openPrice: Decimal(entry.openPriceInCents) / 100
 		)

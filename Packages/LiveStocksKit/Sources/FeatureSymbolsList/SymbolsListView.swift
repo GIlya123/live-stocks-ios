@@ -77,7 +77,8 @@ public struct SymbolsListView: View {
 				symbol: StockSymbol(
 					ticker: "AAPL",
 					name: "Apple",
-					summary: "Consumer electronics"
+					summary: "Consumer electronics",
+					currency: .usd
 				),
 				openPrice: 189
 			),
@@ -85,7 +86,8 @@ public struct SymbolsListView: View {
 				symbol: StockSymbol(
 					ticker: "NVDA",
 					name: "NVIDIA",
-					summary: "Graphics and AI chips"
+					summary: "Graphics and AI chips",
+					currency: .usd
 				),
 				openPrice: 121
 			),

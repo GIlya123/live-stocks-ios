@@ -12,6 +12,8 @@ import Foundation
 private enum Constants {
 	/// Changes below this round to 0.00% on screen, so they show as flat
 	static let minVisibleChange = Decimal(sign: .plus, exponent: -5, significand: 5)
+	/// Unicode CLDR id of the 0-9 digits
+	static let latinDigits: Locale.NumberingSystem = "latn"
 }
 
 extension PriceChangeView.Model {
@@ -19,8 +21,9 @@ extension PriceChangeView.Model {
 		_ quote: StockQuote,
 		locale: Locale
 	) {
+		let locale = locale.withLatinDigits
 		self.init(
-			price: quote.price.formatted(.currency(code: "USD").locale(locale)),
+			price: quote.price.formatted(.currency(code: quote.symbol.currency.rawValue).locale(locale)),
 			change: quote.changePercent.formatted(
 				.percent
 					.precision(.fractionLength(2))
@@ -42,5 +45,14 @@ extension PriceChangeView.Model.Trend {
 		case .unchanged:
 			self = .flat
 		}
+	}
+}
+
+extension Locale {
+	/// Same locale with 0-9 digits, Arabic would show ٢٢٧٫٤٨ otherwise
+	fileprivate var withLatinDigits: Locale {
+		var components = Locale.Components(locale: self)
+		components.numberingSystem = Constants.latinDigits
+		return Locale(components: components)
 	}
 }
