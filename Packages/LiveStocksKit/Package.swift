@@ -47,6 +47,12 @@ let package = Package(
 				"Networking"
 			]
 		),
+		.testTarget(
+			name: "NetworkingIntegrationTests",
+			dependencies: [
+				"Networking"
+			]
+		),
 		.target(
 			name: "PriceFeed",
 			dependencies: [
