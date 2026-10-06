@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "F5EB356F-2E2E-4F94-A03A-0543A212E990",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random",
+    "threadSanitizerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:LiveStocks.xcodeproj",
+        "identifier" : "9D370ABA3074320600FFB811",
+        "name" : "LiveStocksTests"
+      }
+    }
+  ],
+  "version" : 1
+}
