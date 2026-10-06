@@ -87,10 +87,27 @@ let package = Package(
 			name: "DesignSystem"
 		),
 		.target(
+			name: "QuotesUI",
+			dependencies: [
+				"Domain",
+				"DesignSystem",
+			]
+		),
+		.testTarget(
+			name: "QuotesUITests",
+			dependencies: [
+				"QuotesUI",
+				"Domain",
+				"DesignSystem",
+				"DomainTesting",
+			]
+		),
+		.target(
 			name: "FeatureSymbolsList",
 			dependencies: [
 				"Domain",
 				"DesignSystem",
+				"QuotesUI",
 			]
 		),
 		.testTarget(
@@ -98,7 +115,6 @@ let package = Package(
 			dependencies: [
 				"FeatureSymbolsList",
 				"Domain",
-				"DesignSystem",
 				"DomainTesting",
 			]
 		),
@@ -107,6 +123,7 @@ let package = Package(
 			dependencies: [
 				"Domain",
 				"DesignSystem",
+				"QuotesUI",
 			]
 		),
 	]

@@ -12,7 +12,8 @@ extension StockSymbol {
 	public static func fixture(_ ticker: String) -> StockSymbol {
 		StockSymbol(
 			ticker: ticker,
-			name: "\(ticker) Inc."
+			name: "\(ticker) Inc.",
+			summary: "\(ticker) summary"
 		)
 	}
 }

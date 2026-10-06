@@ -6,6 +6,7 @@
 //
 
 import Domain
+import FeatureSymbolDetails
 import FeatureSymbolsList
 import Foundation
 import PriceFeed
@@ -28,5 +29,9 @@ final class AppContainer {
 
 	func makeSymbolsListViewModel() -> SymbolsListViewModel {
 		SymbolsListViewModel(store: store)
+	}
+
+	func makeSymbolDetailsView(for symbol: StockSymbol) -> SymbolDetailsView? {
+		store.liveQuote(for: symbol).map(SymbolDetailsView.init)
 	}
 }

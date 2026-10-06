@@ -7,6 +7,7 @@
 
 import DesignSystem
 import Domain
+import QuotesUI
 import SwiftUI
 
 public struct SymbolsListView: View {
@@ -18,7 +19,9 @@ public struct SymbolsListView: View {
 
 	public var body: some View {
 		List(viewModel.rows) { liveQuote in
-			SymbolRow(liveQuote: liveQuote)
+			NavigationLink(value: liveQuote.quote.symbol) {
+				SymbolRow(liveQuote: liveQuote)
+			}
 		}
 		.listStyle(.plain)
 		.safeAreaInset(edge: .top) {
@@ -73,19 +76,21 @@ public struct SymbolsListView: View {
 			StockQuote(
 				symbol: StockSymbol(
 					ticker: "AAPL",
-					name: "Apple"
+					name: "Apple",
+					summary: "Consumer electronics"
 				),
 				openPrice: 189
 			),
 			StockQuote(
 				symbol: StockSymbol(
 					ticker: "NVDA",
-					name: "NVIDIA"
+					name: "NVIDIA",
+					summary: "Graphics and AI chips"
 				),
 				openPrice: 121
 			),
 		],
-		feed: PreviewFeed()
+		feed: PreviewPriceFeed()
 	)
 	NavigationStack {
 		SymbolsListView(viewModel: SymbolsListViewModel(store: store))
@@ -93,17 +98,4 @@ public struct SymbolsListView: View {
 	.task {
 		await store.listen()
 	}
-}
-
-/// Feed for previews that stays connected and never ticks
-private struct PreviewFeed: PriceStreaming {
-	func updates() async -> AsyncStream<PriceFeedUpdate> {
-		AsyncStream { continuation in
-			continuation.yield(.state(.connected))
-		}
-	}
-
-	func start() async {}
-
-	func stop() async {}
 }
