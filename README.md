@@ -12,7 +12,7 @@ Test assignment for MultiBank Group.
 
 ## Running
 
-Xcode 27, iOS 17+. No third-party dependencies, nothing to install.
+Xcode 26 or newer, iOS 17+. No third-party dependencies, nothing to install.
 Open `LiveStocks.xcodeproj`, pick the `LiveStocks` scheme and run. Press Start to connect.
 
 ## Requirements
