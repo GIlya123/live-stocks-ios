@@ -9,6 +9,12 @@ let package = Package(
 	platforms: [.iOS(.v17)],
 	products: [
 		.library(
+			name: "Domain",
+			targets: [
+				"Domain"
+			]
+		),
+		.library(
 			name: "PriceFeed",
 			targets: [
 				"PriceFeed"
@@ -34,6 +40,13 @@ let package = Package(
 		),
 		.testTarget(
 			name: "DomainTests",
+			dependencies: [
+				"Domain",
+				"DomainTesting",
+			]
+		),
+		.target(
+			name: "DomainTesting",
 			dependencies: [
 				"Domain"
 			]
@@ -71,16 +84,22 @@ let package = Package(
 
 		// UI
 		.target(
-			name: "DesignSystem",
-			dependencies: [
-				"Domain"
-			]
+			name: "DesignSystem"
 		),
 		.target(
 			name: "FeatureSymbolsList",
 			dependencies: [
 				"Domain",
 				"DesignSystem",
+			]
+		),
+		.testTarget(
+			name: "FeatureSymbolsListTests",
+			dependencies: [
+				"FeatureSymbolsList",
+				"Domain",
+				"DesignSystem",
+				"DomainTesting",
 			]
 		),
 		.target(

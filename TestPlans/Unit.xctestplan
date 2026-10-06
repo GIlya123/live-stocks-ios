@@ -40,6 +40,13 @@
         "identifier" : "PriceFeedTests",
         "name" : "PriceFeedTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/LiveStocksKit",
+        "identifier" : "FeatureSymbolsListTests",
+        "name" : "FeatureSymbolsListTests"
+      }
     }
   ],
   "version" : 1

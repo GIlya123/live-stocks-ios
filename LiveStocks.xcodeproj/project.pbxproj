@@ -10,6 +10,7 @@
 		9D370B203074400000FFB811 /* PriceFeed in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B103074400000FFB811 /* PriceFeed */; };
 		9D370B213074400000FFB811 /* FeatureSymbolsList in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B113074400000FFB811 /* FeatureSymbolsList */; };
 		9D370B223074400000FFB811 /* FeatureSymbolDetails in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B123074400000FFB811 /* FeatureSymbolDetails */; };
+		9D370B233074400000FFB811 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 9D370B133074400000FFB811 /* Domain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 				9D370B203074400000FFB811 /* PriceFeed in Frameworks */,
 				9D370B213074400000FFB811 /* FeatureSymbolsList in Frameworks */,
 				9D370B223074400000FFB811 /* FeatureSymbolDetails in Frameworks */,
+				9D370B233074400000FFB811 /* Domain in Frameworks */,
 			);
 		};
 		9D370AB83074320600FFB811 /* Frameworks */ = {
@@ -125,6 +127,7 @@
 				9D370B103074400000FFB811 /* PriceFeed */,
 				9D370B113074400000FFB811 /* FeatureSymbolsList */,
 				9D370B123074400000FFB811 /* FeatureSymbolDetails */,
+				9D370B133074400000FFB811 /* Domain */,
 			);
 			productName = LiveStocks;
 			productReference = 9D370AAE3074320400FFB811 /* LiveStocks.app */;
@@ -412,6 +415,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34UB5HMPNV;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -444,6 +448,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34UB5HMPNV;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -603,6 +608,10 @@
 		9D370B123074400000FFB811 /* FeatureSymbolDetails */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FeatureSymbolDetails;
+		};
+		9D370B133074400000FFB811 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
