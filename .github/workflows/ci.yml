@@ -32,9 +32,20 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
             -resultBundlePath TestResults.xcresult
 
+      - name: Integration tests
+        run: |
+          xcodebuild test \
+            -project LiveStocks.xcodeproj \
+            -scheme LiveStocks \
+            -testPlan Integration \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
+            -resultBundlePath IntegrationResults.xcresult
+
       - name: Upload test results
         if: failure()
         uses: actions/upload-artifact@v7
         with:
           name: TestResults
-          path: TestResults.xcresult
+          path: |
+            TestResults.xcresult
+            IntegrationResults.xcresult

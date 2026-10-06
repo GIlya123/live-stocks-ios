@@ -41,6 +41,18 @@ let package = Package(
 		.target(
 			name: "Networking"
 		),
+		.testTarget(
+			name: "NetworkingTests",
+			dependencies: [
+				"Networking"
+			]
+		),
+		.testTarget(
+			name: "NetworkingIntegrationTests",
+			dependencies: [
+				"Networking"
+			]
+		),
 		.target(
 			name: "PriceFeed",
 			dependencies: [

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "EB54610F-7D5F-4BD6-95F4-055BBB2FB889",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/LiveStocksKit",
+        "identifier" : "NetworkingIntegrationTests",
+        "name" : "NetworkingIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
