@@ -28,7 +28,7 @@ extension StockQuote {
 			openPrice: open
 		)
 		if let price {
-			quote.apply(.fixture(ticker, price: price, at: 1))
+			quote.apply(.fixture(ticker, price: price, sequence: 1))
 		}
 		return quote
 	}
@@ -38,12 +38,13 @@ extension PriceTick {
 	static func fixture(
 		_ ticker: String,
 		price: Decimal,
-		at seconds: TimeInterval
+		sequence: Int
 	) -> PriceTick {
 		PriceTick(
 			ticker: ticker,
 			price: price,
-			timestamp: Date(timeIntervalSince1970: seconds)
+			sequence: sequence,
+			timestamp: Date(timeIntervalSince1970: TimeInterval(sequence))
 		)
 	}
 }
