@@ -34,10 +34,14 @@
 		9D370ABB3074320600FFB811 /* LiveStocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveStocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D370AC53074320600FFB811 /* LiveStocksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveStocksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D370B023074400000FFB811 /* LiveStocksKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LiveStocksKit; path = Packages/LiveStocksKit; sourceTree = "<group>"; };
-		9DB4BEC53074427200F3B46C /* Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Unit.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		9D03D4923074BFA00098A02C /* TestPlans */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		9D370AB03074320400FFB811 /* LiveStocks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LiveStocks;
@@ -80,7 +84,7 @@
 		9D370AA53074320400FFB811 = {
 			isa = PBXGroup;
 			children = (
-				9DB4BEC53074427200F3B46C /* Unit.xctestplan */,
+				9D03D4923074BFA00098A02C /* TestPlans */,
 				9D370B023074400000FFB811 /* LiveStocksKit */,
 				9D370AB03074320400FFB811 /* LiveStocks */,
 				9D370ABE3074320600FFB811 /* LiveStocksTests */,
