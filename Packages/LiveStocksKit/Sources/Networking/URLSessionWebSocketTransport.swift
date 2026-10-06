@@ -21,7 +21,12 @@ public struct URLSessionWebSocketTransport: WebSocketTransport {
 		// resume() doesn't tell whether the handshake succeeded, a ping does
 		let connection = URLSessionWebSocketConnection(task: task)
 		do {
-			try await connection.ping()
+			// The ping callback ignores task cancellation, closing the socket makes it fail right away
+			try await withTaskCancellationHandler {
+				try await connection.ping()
+			} onCancel: {
+				connection.close()
+			}
 		} catch {
 			connection.close()
 			throw error
