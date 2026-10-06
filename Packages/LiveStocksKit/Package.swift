@@ -32,6 +32,12 @@ let package = Package(
 		.target(
 			name: "Domain"
 		),
+		.testTarget(
+			name: "DomainTests",
+			dependencies: [
+				"Domain"
+			]
+		),
 		.target(
 			name: "Networking"
 		),
