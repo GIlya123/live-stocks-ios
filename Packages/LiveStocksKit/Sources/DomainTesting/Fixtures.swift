@@ -1,6 +1,6 @@
 //
 //  Fixtures.swift
-//  DomainTests
+//  DomainTesting
 //
 //  Created by GIlya123 on 05.10.2026.
 //
@@ -9,7 +9,7 @@ import Domain
 import Foundation
 
 extension StockSymbol {
-	static func fixture(_ ticker: String) -> StockSymbol {
+	public static func fixture(_ ticker: String) -> StockSymbol {
 		StockSymbol(
 			ticker: ticker,
 			name: "\(ticker) Inc."
@@ -18,7 +18,7 @@ extension StockSymbol {
 }
 
 extension StockQuote {
-	static func fixture(
+	public static func fixture(
 		_ ticker: String,
 		open: Decimal,
 		price: Decimal? = nil
@@ -35,7 +35,7 @@ extension StockQuote {
 }
 
 extension PriceTick {
-	static func fixture(
+	public static func fixture(
 		_ ticker: String,
 		price: Decimal,
 		sequence: Int
