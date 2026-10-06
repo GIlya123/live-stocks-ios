@@ -14,7 +14,7 @@ No third-party dependencies. Open `LiveStocks.xcodeproj` and run the `LiveStocks
 
 ```bash
 xcodebuild test -project LiveStocks.xcodeproj -scheme LiveStocks -testPlan Unit \
-	-destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+	-destination 'platform=iOS Simulator,name=iPhone 17,OS=latest'
 ```
 
-Modules live in `Packages/LiveStocksKit`.
+Testing approach is in [TESTING.md](TESTING.md). Modules live in `Packages/LiveStocksKit`.
